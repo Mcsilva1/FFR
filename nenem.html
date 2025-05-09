@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Eu Te Amo muito</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff6b6b, #ff8e53);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .heart {
+            position: absolute;
+            width: 100px;
+            height: 90px;
+            background: #ff4d4d;
+            transform: rotate(-45deg);
+            animation: float 6s infinite;
+            opacity: 0.7;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 90px;
+            position: absolute;
+            background: #ff4d4d;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -45px;
+            left: 0;
+        }
+        .heart::after {
+            left: 45px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(-45deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(-45deg); opacity: 0.3; }
+            100% { transform: translateY(0) rotate(-45deg); opacity: 0.7; }
+        }
+        #yesButton:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        #noButton {
+            position: absolute;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="heart" style="top: 10%; left: 20%;"></div>
+    <div class="heart" style="top: 60%; left: 70%;"></div>
+    <div class="heart" style="top: 30%; left: 50%;"></div>
+    
+    <div class="text-center z-10">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Carolina</h1>
+        <p class="text-xl md:text-2xl mb-6">Você é incrível, e meu coração bate mais forte por voce sua gostosa, sabia que eu te amo?</p>
+        
+        <div class="flex justify-center gap-4">
+            <button id="yesButton" class="bg-green-500 text-white px-6 py-3 rounded-full text-lg hover:bg-green-600">
+                Sim
+            </button>
+            <button id="noButton" class="bg-red-500 text-white px-6 py-3 rounded-full text-lg hover:bg-red-600">
+                Não
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+
+        noButton.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            noButton.style.left = Math.random() * maxX + 'px';
+            noButton.style.top = Math.random() * maxY + 'px';
+        });
+
+        yesButton.addEventListener('click', () => {
+            alert('Você é maravilhosa amor! 💖 espero ser feliz com voce!');
+        });
+    </script>
+</body>
+</html>
